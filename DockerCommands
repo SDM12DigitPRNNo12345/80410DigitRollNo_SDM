@@ -1,0 +1,50 @@
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ sudo docker image ls
+[sudo] password for goppu: 
+REPOSITORY                     TAG       IMAGE ID       CREATED       SIZE
+172.18.1.50:5000/hello-world   latest    07308918cc5b   2 weeks ago   1.1GB
+172.18.1.50:5000/mysql         latest    07308918cc5b   2 weeks ago   1.1GB
+172.18.1.50:5000/node          latest    07308918cc5b   2 weeks ago   1.1GB
+httpd                          latest    a6ca7b52a415   2 weeks ago   168MB
+mysql                          latest    a3b6608898d6   6 weeks ago   596MB
+
+
+
+
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ sudo docker image build -t mywebsite .
+[+] Building 0.1s (7/7) FINISHED                                 docker:default
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 2B                                            0.0s
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 95B                                        0.0s
+ => [internal] load metadata for docker.io/library/httpd:latest            0.0s
+ => [internal] load build context                                          0.0s
+ => => transferring context: 1.44kB                                        0.0s
+ => CACHED [1/2] FROM docker.io/library/httpd                              0.0s
+ => [2/2] COPY ./index.html /usr/local/apache2/htdocs/                     0.0s
+ => exporting to image                                                     0.0s
+ => => exporting layers                                                    0.0s
+ => => writing image sha256:4da1a16de460a6bf888bd4ecd68d696689e0892f41ff9  0.0s
+ => => naming to docker.io/library/mywebsite                               0.0s
+ 
+ 
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ sudo docker image ls
+REPOSITORY                     TAG       IMAGE ID       CREATED         SIZE
+mywebsite                      latest    4da1a16de460   4 minutes ago   168MB
+172.18.1.50:5000/hello-world   latest    07308918cc5b   2 weeks ago     1.1GB
+172.18.1.50:5000/mysql         latest    07308918cc5b   2 weeks ago     1.1GB
+172.18.1.50:5000/node          latest    07308918cc5b   2 weeks ago     1.1GB
+httpd                          latest    a6ca7b52a415   2 weeks ago     168MB
+mysql                          latest    a3b6608898d6   6 weeks ago     596MB
+
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ sudo docker container create --name mycontainer mywebsite
+f01c52b76084c17062f5210399723d97ac823d8fe1d45404e38ff9dfa81aabdf
+
+
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ sudo docker container ls
+CONTAINER ID   IMAGE       COMMAND              CREATED         STATUS         PORTS                                   NAMES
+9de0f07391c6   mywebsite   "httpd-foreground"   3 minutes ago   Up 3 minutes   0.0.0.0:9845->80/tcp, :::9845->80/tcp   mycontainer1
+
+
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ sudo docker container run -itd --name mycontainer1 -p 9845:80 mywebsite
+9de0f07391c6e1ca880343007435100cbb2a630c6068f8397df228ff6d039e10
+

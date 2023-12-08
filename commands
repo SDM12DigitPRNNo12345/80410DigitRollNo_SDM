@@ -1,0 +1,53 @@
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ touch info.txt
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ ls
+info.txt
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ cat info.txt
+   Linux is open source.
+   In linux everything
+   is file.files have permissions.
+   files have inode no.
+   files have size.
+   there are several types of file
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ wc info.txt
+  6  24 162 info.txt
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ grep -v "files" info.txt
+   Linux is open source.
+   In linux everything
+   there are several types of file
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ tail -n 3 info.txt
+   files have inode no.
+   files have size.
+   there are several types of file
+   
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ grep -o -i -w 'have' info.txt | wc -l
+3
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ grep "g$" info.txt
+   In linux everything
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ head -n 2 info.txt
+   Linux is open source.
+   In linux everything
+   
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~/Desktop/COSSDM$ grep "^f" info.txt
+  
+goppu@goppu-HP-Pavilion-Laptop-15-eg2xxx:~$ ls -l --sort=size ~/ 
+total 140268
+-rw-rw-r--  1 goppu goppu 93670363 Dec  7 14:51  minikube-linux-amd64
+-rw-rw-r--  1 goppu goppu 49885184 Dec  7 14:40  kubectl
+drwxrwxr-x  3 goppu goppu     4096 Nov 23 21:18 'cpp work'
+drwxrwxr-x  3 goppu goppu     4096 Nov  1 15:51  DAC
+drwxr-xr-x 13 goppu goppu     4096 Dec  8 16:49  Desktop
+drwxr-xr-x  7 goppu goppu     4096 Nov 23 21:47  Documents
+drwxr-xr-x  3 goppu goppu     4096 Dec  7 17:57  Downloads
+drwxrwxr-x  9 goppu goppu     4096 Oct 19 13:14  Gopal
+drwxr-xr-x  2 goppu goppu     4096 Sep  9 21:41  Music
+drwxr-xr-x  4 goppu goppu     4096 Oct  2 00:03  Pictures
+drwxr-xr-x  2 goppu goppu     4096 Sep  9 21:41  Public
+drwx------  8 goppu goppu     4096 Nov  3 17:07  snap
+drwxr-xr-x  2 goppu goppu     4096 Sep  9 21:41  Templates
+drwxrwxr-x  3 goppu goppu     4096 Dec  4 15:40  test-code
+drwxrwxr-x  3 goppu goppu     4096 Dec  7 17:48  tor-browser-linux-x86_64-13.0.6
+drwxr-xr-x  2 goppu goppu     4096 Sep  9 21:41  Videos
+-rw-r--r--  1 root  root       206 Dec  7 14:27  minikubelinux-amd64
+-rw-rw-r--  1 goppu goppu      113 Nov 30 16:43 'For Pull'
+-rw-rw-r--  1 goppu goppu       64 Dec  7 14:44  kubectl.sha256
+-rw-rw-r--  1 goppu goppu       48 Sep 12 17:38 'MY Token'  
